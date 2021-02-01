@@ -14,7 +14,7 @@ export function updateSavedUser(savedUser, activeUser) {
     savedUser[difficulty].push(activeUser.clicks);
 }
 
-export function makeGameBoard(deck, gameBoardSize) {
+export function makeGameArray(deck, gameBoardSize) {
     const halfDeck = deck.splice(0, gameBoardSize / 2);
     const fullDeck = halfDeck.concat(halfDeck);
 
@@ -28,7 +28,16 @@ export function makeGameBoard(deck, gameBoardSize) {
     return gameboardArray;
 }
 
+export function makeGameBoard(gameBoardSize) {
+    const gameboardArray = makeGameArray(deck, gameBoardSize);
+    const gameBoard = document.querySelector('#game-board');
 
+    for (let card of gameboardArray) {
+        const img = document.createElement('img');
+        img.src = `../assets/cards/${card.img}`;
+        gameBoard.append(card);
+    }
+}
 
 const deck = [
     {
@@ -63,4 +72,4 @@ const deck = [
     },
 ];
 
-makeGameBoard(deck, 12);
+makeGameBoard(12);
