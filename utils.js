@@ -1,19 +1,28 @@
 export function findById(id, array) {
     for (let item of array) {
-        if (id === item.id) {
+        if (id === item.name) {
             return item;
         }
     }
 }
 
-const USER = 'user';
+const USERS = 'users';
+const CURRENTUSER = 'current user';
 
-export function saveUser(user) {
-    localStorage.setItem(USER, JSON.stringify(user));
+export function saveUsers(user) {
+    localStorage.setItem(USERS, JSON.stringify(user));
 }
 
-export function getUser() {
-    let stringyUser = localStorage.getItem(USER);
+export function setCurrentUser(currentUser) {
+    localStorage.setItem(CURRENTUSER, JSON.stringify(currentUser));
+}
+
+export function getUsers() {
+    let stringyUser = localStorage.getItem(USERS);
+    if (!stringyUser) {
+        const emptyArray = [];
+        return emptyArray;
+    }
     let parsedUser = JSON.parse(stringyUser);
     return parsedUser;
 }
