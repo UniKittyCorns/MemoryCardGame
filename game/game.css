@@ -1,0 +1,7 @@
+.hidden {
+    display: none;
+}
+
+#game-board img {
+    padding: .25rem;
+}

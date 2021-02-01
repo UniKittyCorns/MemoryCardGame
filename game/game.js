@@ -35,7 +35,23 @@ export function makeGameBoard(gameBoardSize) {
     for (let card of gameboardArray) {
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
-        gameBoard.append(img);
+        img.classList.add(card.name);
+        img.classList.toggle('hidden');
+
+        const imgBack = document.createElement('img');
+        imgBack.src = `../assets/cards/mock-up-back.png`;
+
+        imgBack.addEventListener('click', () => {
+            imgBack.classList.toggle('hidden');
+            img.classList.toggle('hidden');
+        });
+
+        img.addEventListener('click', () => {
+            imgBack.classList.toggle('hidden');
+            img.classList.toggle('hidden');
+        });
+
+        gameBoard.append(img, imgBack);
     }
 }
 
