@@ -35,7 +35,7 @@ export function makeGameBoard(gameBoardSize) {
     for (let card of gameboardArray) {
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
-        gameBoard.append(card);
+        gameBoard.append(img);
     }
 }
 
