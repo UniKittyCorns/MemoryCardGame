@@ -17,10 +17,61 @@ body, html {
     columns: black;
 }
 
+header {
+    height: 150px;
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px black solid;
+}
+
 main {
+    width: 100%;
+    height: auto;
     display: flex; 
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 10px;
+}
+
+a {
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: default;
+}
+
+a:hover {
+    color: rgb(97, 205, 171);
+    cursor: default;
+}
+
+button {
+    height: 30px;
+    background: black;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 400;
+    border: rgb(97, 205, 171) 3px solid;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+button:hover {
+    background:white;
+    color: black;
+    border: black 3px solid;
+    border-radius: 5px;
+}
+
+button:focus {
+    background: rgb(97, 205, 171);
+    color: black;
+    border: black 3px solid;
+    border-radius: 5px;
 }
