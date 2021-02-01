@@ -27,14 +27,8 @@ header {
     border: 2px black solid;
 }
 
-main {
-    width: 100%;
-    height: auto;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px;
+h1 {
+    font-family: 'Chonburi', cursive;
 }
 
 a {
@@ -44,11 +38,22 @@ a {
     text-align: center;
     text-decoration: none;
     cursor: default;
+    margin: 10px;
 }
 
 a:hover {
     color: rgb(97, 205, 171);
     cursor: default;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
 }
 
 button {
