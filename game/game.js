@@ -1,5 +1,8 @@
 import cardDeck from '../data.js';
 
+const tryCountDisplay = document.getElementById('try-count');
+const difficultyLevelDisplay = document.getElementById('difficulty-level');
+
 let tryCount = 0;
 let clicked = [];
 
@@ -37,12 +40,13 @@ export function makeGameBoard(gameBoardSize) {
             if (clicked.length === 4) {
                 gameBoard.classList.add('noClick');
                 tryCount++;
+                tryCountDisplay.textContent = `try count: ${tryCount}`;
+
                 const clicked1Id = clicked[0].value;
                 const clicked2Id = clicked[2].value;
                 if (clicked1Id === clicked2Id) {
                     clicked[0].classList.add('matched');
                     clicked[2].classList.add('matched');
-                    console.log(clicked1Id, clicked2Id, 'match', tryCount);
                     clicked = [];
                     gameBoard.classList.remove('noClick');
                 } else {
@@ -51,7 +55,6 @@ export function makeGameBoard(gameBoardSize) {
                         clicked[1].classList.remove('hidden');
                         clicked[2].classList.add('hidden');
                         clicked[3].classList.remove('hidden');
-                        console.log(clicked1Id, clicked2Id, 'sadness', tryCount);
                         clicked = [];
                         gameBoard.classList.remove('noClick');
                     }, 2000);
@@ -65,5 +68,6 @@ export function makeGameBoard(gameBoardSize) {
         gameBoard.append(img, imgBack);
     }
 }
+
 
 makeGameBoard(12);
