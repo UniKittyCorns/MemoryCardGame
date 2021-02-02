@@ -72,7 +72,7 @@ const cardDeck = [
     {
         id: 15,
         name: 'fifteen',
-        img: 'mock-up-.png',
+        img: 'mock-up-fifteen.png',
     },
     {
         id: 16,
