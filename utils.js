@@ -27,7 +27,7 @@ export function getUsers() {
     return parsedUser;
 }
 
-export function getCurrentUsers() {
+export function getCurrentUser() {
     let stringyUser = localStorage.getItem(CURRENTUSER);
     let parsedCurrentUser = JSON.parse(stringyUser);
     return parsedCurrentUser;
