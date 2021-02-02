@@ -11,7 +11,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
-    const currentUser = formData.get('name');
+    const currentUser = { name: formData.get('name'), game: formData.get('game') };
     const existingUsers = getUsers();
     const userInArray = findById(formData.get('name'), existingUsers);
     const currentLevel = formData.get('game');
@@ -23,7 +23,7 @@ form.addEventListener('submit', (e) => {
             scores: [],
         }];
         saveUsers(user);
-        setCurrentUser(currentUser, currentLevel);
+        setCurrentUser(currentUser);
     } else if (userInArray) {
         setCurrentUser(currentUser);
     } else {

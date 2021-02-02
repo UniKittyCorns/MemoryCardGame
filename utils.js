@@ -1,6 +1,6 @@
 export function findById(id, array) {
     for (let item of array) {
-        if (id === item.id) {
+        if (id === item.name) {
             return item;
         }
     }
@@ -25,5 +25,11 @@ export function getUsers() {
     }
     let parsedUser = JSON.parse(stringyUser);
     return parsedUser;
+}
+
+export function getCurrentUsers() {
+    let stringyUser = localStorage.getItem(CURRENTUSER);
+    let parsedCurrentUser = JSON.parse(stringyUser);
+    return parsedCurrentUser;
 }
 

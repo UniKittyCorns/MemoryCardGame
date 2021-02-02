@@ -1,10 +1,26 @@
 import cardDeck from '../data.js';
+import { getCurrentUsers } from '../utils.js';
 
 const tryCountDisplay = document.getElementById('try-count');
 const difficultyLevelDisplay = document.getElementById('difficulty-level');
 
+
 let tryCount = 0;
 let clicked = [];
+const currentUser = getCurrentUsers();
+difficultyLevelDisplay.textContent = `difficulty level: ${currentUser.game}`;
+
+export function setGameSize(size) {
+    if (size === 'easy') {
+        return 12;
+    } else if (size === 'medium') {
+        return 24;
+    } else {
+        return 48;
+    }
+}
+
+const size = setGameSize(currentUser.game);
 
 export function makeGameArray(cardDeck, gameBoardSize) {
     const halfDeck = cardDeck.splice(0, gameBoardSize / 2);
@@ -69,5 +85,4 @@ export function makeGameBoard(gameBoardSize) {
     }
 }
 
-
-makeGameBoard(12);
+makeGameBoard(size);
