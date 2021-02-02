@@ -14,7 +14,8 @@ form.addEventListener('submit', (e) => {
     const currentUser = { name: formData.get('name'), game: formData.get('game') };
     const existingUsers = getUsers();
     const userInArray = findById(formData.get('name'), existingUsers);
-
+    const currentLevel = formData.get('game');
+    
     if (!existingUsers) {
         const user = [{
             name: formData.get('name'),
