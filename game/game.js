@@ -38,8 +38,8 @@ export function makeGameBoard(gameBoardSize) {
     for (let card of gameboardArray) {
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
-        img.classList.add(card.name);
         img.classList.toggle('hidden');
+        img.value = card.id;
 
         const imgBack = document.createElement('img');
         imgBack.src = `../assets/cards/mock-up-back.png`;
@@ -47,38 +47,33 @@ export function makeGameBoard(gameBoardSize) {
         imgBack.addEventListener('click', () => {
             imgBack.classList.toggle('hidden');
             img.classList.toggle('hidden');
-            const clickedCard = img;
-            clicked.push(clickedCard);
+            console.log(img.value);
         });
-
-        /*img.addEventListener('click', () => {
-            imgBack.classList.toggle('hidden');
-            img.classList.toggle('hidden');
-        });*/
 
         gameBoard.append(img, imgBack);
     }
-    gameBoard.addEventListener('click', () => {
-        if (clicked.length === 2) {
-            const clicked1 = clicked[0].classList;
-            const clicked2 = clicked[1].classList;
-            tryCount++;
-            //comare
-            if (clicked1 === clicked2) {
-                clicked1.add('matched');
-                clicked2.add('matched');
-            }
-            else {
-                //time
-                clicked1.toggle('hidden');
-                clicked2.toggle('hidden');
-            }
-        }
-    });
 }
 
 
 
+
+// gameBoard.addEventListener('click', () => {
+//     if (clicked.length === 2) {
+//         const clicked1 = clicked[0].classList;
+//         const clicked2 = clicked[1].classList;
+//         tryCount++;
+//         //comare
+//         if (clicked1 === clicked2) {
+//             clicked1.add('matched');
+//             clicked2.add('matched');
+//         }
+//         else {
+//             //time
+//             clicked1.toggle('hidden');
+//             clicked2.toggle('hidden');
+//         }
+//     }
+// });
 
 
 
