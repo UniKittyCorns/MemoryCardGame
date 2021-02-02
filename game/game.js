@@ -41,6 +41,7 @@ export function makeGameBoard(gameBoardSize) {
                 gameBoard.classList.add('noClick');
                 tryCount++;
                 tryCountDisplay.textContent = `try count: ${tryCount}`;
+                difficultyLevelDisplay.textContent = `difficulty level: ??`;
 
                 const clicked1Id = clicked[0].value;
                 const clicked2Id = clicked[2].value;

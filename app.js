@@ -11,7 +11,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
-    const currentUser = formData.get('name');
+    const currentUser = { name: formData.get('name'), game: formData.get('game') };
     const existingUsers = getUsers();
     const userInArray = findById(formData.get('name'), existingUsers);
 
@@ -22,7 +22,6 @@ form.addEventListener('submit', (e) => {
         }];
         saveUsers(user);
         setCurrentUser(currentUser);
-        //console.log(currentUser);
     } else if (userInArray) {
         setCurrentUser(currentUser);
     } else {
@@ -31,5 +30,5 @@ form.addEventListener('submit', (e) => {
         saveUsers(existingUsers);
         setCurrentUser(currentUser);
     }
-    window.location = './game/index.html';
+    //window.location = './game/index.html';
 });
