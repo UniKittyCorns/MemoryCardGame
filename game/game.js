@@ -1,4 +1,7 @@
 // switch to cardDeck import
+let tryCount = 0;
+let clicked = [];
+const gameBoard = document.getElementById('game-board');
 
 export function createUser(name, difficulty) {
     const user = {};
@@ -44,16 +47,41 @@ export function makeGameBoard(gameBoardSize) {
         imgBack.addEventListener('click', () => {
             imgBack.classList.toggle('hidden');
             img.classList.toggle('hidden');
+            const clickedCard = img;
+            clicked.push(clickedCard);
         });
 
-        img.addEventListener('click', () => {
+        /*img.addEventListener('click', () => {
             imgBack.classList.toggle('hidden');
             img.classList.toggle('hidden');
-        });
+        });*/
 
         gameBoard.append(img, imgBack);
     }
+    gameBoard.addEventListener('click', () => {
+        if (clicked.length === 2) {
+            const clicked1 = clicked[0].classList;
+            const clicked2 = clicked[1].classList;
+            tryCount++;
+            //comare
+            if (clicked1 === clicked2) {
+                clicked1.add('matched');
+                clicked2.add('matched');
+            }
+            else {
+                //time
+                clicked1.toggle('hidden');
+                clicked2.toggle('hidden');
+            }
+        }
+    });
 }
+
+
+
+
+
+
 
 const deck = [
     {
