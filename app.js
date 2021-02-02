@@ -38,5 +38,5 @@ form.addEventListener('submit', (e) => {
         saveUsers(existingUsers);
         setCurrentUser(currentUser);
     }
-    //window.location = './game/index.html';
+    window.location = './game/index.html';
 });
