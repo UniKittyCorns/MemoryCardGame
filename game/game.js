@@ -4,6 +4,10 @@ import { getCurrentUsers } from '../utils.js';
 const tryCountDisplay = document.getElementById('try-count');
 const difficultyLevelDisplay = document.getElementById('difficulty-level');
 const displayWrapper = document.getElementById('display-wrapper');
+const giveUpButton = document.getElementById('give-up');
+const resetGameButton = document.getElementById('reset-game');
+const newGameButton = document.getElementById('new-game');
+const gameBoard = document.querySelector('#game-board');
 
 let matched = 0;
 let tryCount = 0;
@@ -28,8 +32,15 @@ export function checkEndGame(size, matched) {
     if (matched === size / 2) {
         const winMessage = document.createElement('p');
         winMessage.textContent = `Well done, you have completed level ${currentUser.game} in ${tryCount} turns`;
+
+        const resultsButton = document.createElement('button');
+        resultsButton.textContent = 'view high scores';
+        resultsButton.addEventListener('click', () => {
+            window.location = '../results/index.html';
+        });
+
         displayWrapper.textContent = '';
-        displayWrapper.append(winMessage);
+        displayWrapper.append(winMessage, resultsButton);
     }
 }
 
@@ -50,7 +61,6 @@ export function makeGameArray(cardDeck, gameBoardSize) {
 
 export function makeGameBoard(gameBoardSize) {
     const gameboardArray = makeGameArray(cardDeck, gameBoardSize);
-    const gameBoard = document.querySelector('#game-board');
 
     for (let card of gameboardArray) {
         const img = document.createElement('img');
@@ -100,3 +110,22 @@ export function makeGameBoard(gameBoardSize) {
 }
 
 makeGameBoard(size);
+
+giveUpButton.addEventListener('click', () => {
+    resetGameButton.style.display = 'block';
+    newGameButton.style.display = 'block';
+    giveUpButton.style.display = 'none';
+});
+
+resetGameButton.addEventListener('click', () => {
+    gameBoard.textContent = '';
+    tryCount = 0;
+    matched = 0;
+    clicked = [];
+    tryCountDisplay.textContent = `try count: 0`;
+    makeGameBoard(size);
+});
+
+newGameButton.addEventListener('click', () => {
+    window.location = '../index.html';
+});
