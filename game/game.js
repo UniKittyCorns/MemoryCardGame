@@ -3,8 +3,9 @@ import { getCurrentUsers } from '../utils.js';
 
 const tryCountDisplay = document.getElementById('try-count');
 const difficultyLevelDisplay = document.getElementById('difficulty-level');
+const displayWrapper = document.getElementById('display-wrapper');
 
-
+let matched = 0;
 let tryCount = 0;
 let clicked = [];
 const currentUser = getCurrentUsers();
@@ -21,6 +22,17 @@ export function setGameSize(size) {
 }
 
 const size = setGameSize(currentUser.game);
+
+
+export function checkEndGame(size, matched) {
+    if (matched === size / 2) {
+        const winMessage = document.createElement('p');
+        winMessage.textContent = `Well done, you have completed level ${currentUser.game} in ${tryCount} turns`;
+        displayWrapper.textContent = '';
+        displayWrapper.append(winMessage);
+    }
+}
+
 
 export function makeGameArray(cardDeck, gameBoardSize) {
     const halfDeck = cardDeck.splice(0, gameBoardSize / 2);
@@ -63,8 +75,10 @@ export function makeGameBoard(gameBoardSize) {
                 if (clicked1Id === clicked2Id) {
                     clicked[0].classList.add('matched');
                     clicked[2].classList.add('matched');
+                    matched++;
                     clicked = [];
                     gameBoard.classList.remove('noClick');
+                    checkEndGame(size, matched);
                 } else {
                     setTimeout(() => {
                         clicked[0].classList.add('hidden');
