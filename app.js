@@ -14,15 +14,16 @@ form.addEventListener('submit', (e) => {
     const currentUser = formData.get('name');
     const existingUsers = getUsers();
     const userInArray = findById(formData.get('name'), existingUsers);
-
+    const currentLevel = formData.get('game');
+    
     if (!existingUsers) {
         const user = [{
             name: formData.get('name'),
+            difficultyLevel: currentLevel,
             scores: [],
         }];
         saveUsers(user);
-        setCurrentUser(currentUser);
-        //console.log(currentUser);
+        setCurrentUser(currentUser, currentLevel);
     } else if (userInArray) {
         setCurrentUser(currentUser);
     } else {
@@ -31,5 +32,5 @@ form.addEventListener('submit', (e) => {
         saveUsers(existingUsers);
         setCurrentUser(currentUser);
     }
-    window.location = './game/index.html';
+    //window.location = './game/index.html';
 });
