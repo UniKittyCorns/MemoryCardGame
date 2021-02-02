@@ -73,34 +73,32 @@ export function makeGameBoard(gameBoardSize) {
     for (let card of gameboardArray) {
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
-        img.classList.toggle('hidden');
+        img.classList.add('hidden');
         img.value = card.id;
 
         const imgBack = document.createElement('img');
         imgBack.src = `../assets/cards/mock-up-back.png`;
 
         imgBack.addEventListener('click', () => {
-            imgBack.classList.toggle('hidden');
-            img.classList.toggle('hidden');
-            img.classList.toggle('clicked');
-            const imgId = img.value;
-            clicked.push(imgId);
-            if (clicked.length === 2) {
-                const clicked1 = clicked[0];
-                const clicked2 = clicked[1];
-                if (clicked1 === clicked2) {
-                    const clicked1Id = findById(clicked1, gameboardArray);
-                    const clicked2Id = findById(clicked2, gameboardArray);
-                    console.log(clicked1Id, 'match');
+            imgBack.classList.add('hidden');
+            img.classList.remove('hidden');
+            clicked.push(img, imgBack);  // even index = front of card, odd index = back of card
+            if (clicked.length === 4) {
+                tryCount++;
+                const clicked1Id = clicked[0].value;
+                const clicked2Id = clicked[2].value;
+                if (clicked1Id === clicked2Id) {
+                    clicked[0].classList.add('matched');
+                    clicked[2].classList.add('matched');
+                    console.log(clicked1Id, clicked2Id, 'match', tryCount);
                     clicked = [];
-                }
-                else {
+                } else {
                     //time
-                    document.querySelector('.clicked').classList = 'hidden';
-                    const clicked1Id = findById(clicked1, gameboardArray);
-                    const clicked2Id = findById(clicked2, gameboardArray);
-                    clicked1Id.classList.toggle('hidden');
-                    console.log(clicked1Id, 'sadness');
+                    clicked[0].classList.add('hidden');
+                    clicked[1].classList.remove('hidden');
+                    clicked[2].classList.add('hidden');
+                    clicked[3].classList.remove('hidden');
+                    console.log(clicked1Id, clicked2Id, 'sadness', tryCount);
                     clicked = [];
                 }
 
