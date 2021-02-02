@@ -18,14 +18,21 @@ form.addEventListener('submit', (e) => {
     if (!existingUsers) {
         const user = [{
             name: formData.get('name'),
-            scores: [],
+            easyScores: [],
+            mediumScores: [],
+            hardScores: [],
         }];
         saveUsers(user);
         setCurrentUser(currentUser);
     } else if (userInArray) {
         setCurrentUser(currentUser);
     } else {
-        const user = { name: formData.get('name'), scores: [], };
+        const user = {
+            name: formData.get('name'),
+            easyScores: [],
+            mediumScores: [],
+            hardScores: [],
+        };
         existingUsers.push(user);
         saveUsers(existingUsers);
         setCurrentUser(currentUser);
