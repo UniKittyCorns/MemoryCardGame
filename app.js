@@ -13,10 +13,12 @@ form.addEventListener('submit', (e) => {
     const formData = new FormData(form);
     const currentUser = { name: formData.get('name'), game: formData.get('game') };
     const existingUsers = getUsers();
+    console.log(existingUsers);
     const userInArray = findById(formData.get('name'), existingUsers);
 
 
     if (!existingUsers.length) {
+        console.log('hi');
         const user = {
             name: formData.get('name'),
             levels:
