@@ -4,4 +4,6 @@
 
 #game-board img {
     padding: .25rem;
+    height: 100px;
+    width: 100px;
 }

@@ -1,4 +1,39 @@
+import { findById } from "../utils.js";
+
 // switch to cardDeck import
+const deck = [
+    {
+        id: 1,
+        name: 'one',
+        img: 'mock-up-one.png',
+    },
+    {
+        id: 2,
+        name: 'two',
+        img: 'mock-up-two.png',
+    },
+    {
+        id: 3,
+        name: 'three',
+        img: 'mock-up-three.png',
+    },
+    {
+        id: 4,
+        name: 'four',
+        img: 'mock-up-four.png',
+    },
+    {
+        id: 5,
+        name: 'five',
+        img: 'mock-up-five.png',
+    },
+    {
+        id: 6,
+        name: 'six',
+        img: 'mock-up-six.png',
+    },
+];
+
 let tryCount = 0;
 let clicked = [];
 const gameBoard = document.getElementById('game-board');
@@ -47,13 +82,34 @@ export function makeGameBoard(gameBoardSize) {
         imgBack.addEventListener('click', () => {
             imgBack.classList.toggle('hidden');
             img.classList.toggle('hidden');
-            console.log(img.value);
+            img.classList.toggle('clicked');
+            const imgId = img.value;
+            clicked.push(imgId);
+            if (clicked.length === 2) {
+                const clicked1 = clicked[0];
+                const clicked2 = clicked[1];
+                if (clicked1 === clicked2) {
+                    const clicked1Id = findById(clicked1, gameboardArray);
+                    const clicked2Id = findById(clicked2, gameboardArray);
+                    console.log(clicked1Id, 'match');
+                    clicked = [];
+                }
+                else {
+                    //time
+                    document.querySelector('.clicked').classList = 'hidden';
+                    const clicked1Id = findById(clicked1, gameboardArray);
+                    const clicked2Id = findById(clicked2, gameboardArray);
+                    clicked1Id.classList.toggle('hidden');
+                    console.log(clicked1Id, 'sadness');
+                    clicked = [];
+                }
+
+            }
         });
 
         gameBoard.append(img, imgBack);
     }
 }
-
 
 
 
@@ -78,37 +134,6 @@ export function makeGameBoard(gameBoardSize) {
 
 
 
-const deck = [
-    {
-        id: 1,
-        name: 'one',
-        img: 'mock-up-one.png',
-    },
-    {
-        id: 2,
-        name: 'two',
-        img: 'mock-up-two.png',
-    },
-    {
-        id: 3,
-        name: 'three',
-        img: 'mock-up-three.png',
-    },
-    {
-        id: 4,
-        name: 'four',
-        img: 'mock-up-four.png',
-    },
-    {
-        id: 5,
-        name: 'five',
-        img: 'mock-up-five.png',
-    },
-    {
-        id: 6,
-        name: 'six',
-        img: 'mock-up-six.png',
-    },
-];
+
 
 makeGameBoard(12);
