@@ -22,7 +22,8 @@ export function renderScore(userDataLevels) {
     if (userDataLevels.length === 0) {
         return '-';
     }
-    const sorted = userDataLevels.sort();
+    const sorted = userDataLevels.sort(function (a, b) { return a - b; })
+        ;
     return sorted[0];
 }
 
