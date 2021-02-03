@@ -68,22 +68,22 @@ test('update trycount for specific user and difficulty in users array', (expect)
 });
 
 // renderScoreLine test
-test('render table line based on user data in local storage', (expect) => {
+test('render table line based on user data in local storage; returns "-" for empty array, and returns lowest(best) score for multiple entries', (expect) => {
     const userData = {
         name: 'Casey',
         levels:
         {
             easy: [7],
             medium: [],
-            hard: [3],
+            hard: [4, 3],
         }
     };
 
-    const expected = `<tr><td>Casey</td><td>7</td><td></td><td>3</td></tr>`;
+    const expected = `<tr><td>Casey</td><td>7</td><td>-</td><td>3</td></tr>`;
 
     const actual = renderScoreLine(userData);
 
-    
+
     expect.equal(actual.outerHTML, expected);
 
 });
