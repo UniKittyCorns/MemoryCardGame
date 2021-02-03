@@ -1,5 +1,6 @@
 import cardDeck from '../data.js';
-import { findById, getCurrentUser, getUsers, saveUsers } from '../utils.js';
+import { getCurrentUser, saveUsers } from '../utils.js';
+import { setUserScore } from './game-utils.js';
 
 const tryCountDisplay = document.getElementById('try-count');
 const difficultyLevelDisplay = document.getElementById('difficulty-level');
@@ -41,7 +42,8 @@ export function checkEndGame(size, matched) {
 
         displayWrapper.textContent = '';
         displayWrapper.append(winMessage, resultsButton);
-        setUserScore();
+        const updatedUsersArray = setUserScore(tryCount, currentUser);
+        saveUsers(updatedUsersArray);
     }
 }
 
@@ -130,17 +132,3 @@ resetGameButton.addEventListener('click', () => {
 newGameButton.addEventListener('click', () => {
     window.location = '../index.html';
 });
-
-export function setUserScore() {
-    //need to get current user
-    const currentUsersArray = getUsers();
-    const currentUserInArray = findById(currentUser.name, currentUsersArray);
-    const currentUserLevel = currentUser.game;
-    const levels = currentUserInArray.levels;
-    levels[currentUserLevel].push(tryCount);
-
-    //send back to local storage 
-    saveUsers(currentUserInArray);
-
-}
-setUserScore();
