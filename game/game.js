@@ -79,6 +79,10 @@ export function makeGameBoard(shuffledDeck) {
         imgBack.src = `../assets/cards/mock-up-back.png`;  // switch to new image assets name
 
         imgBack.addEventListener('click', () => {
+            const audio = document.querySelector('#flip-audio');
+            audio.volume = 0.1;
+            audio.play();
+
             imgBack.classList.add('hidden');
             img.classList.remove('hidden');
             clicked.push(img, imgBack);  // even index = front of card, odd index = back of card
@@ -96,6 +100,11 @@ export function makeGameBoard(shuffledDeck) {
                     clicked = [];
                     gameBoard.classList.remove('noClick');
                     checkEndGame(size, matched);
+
+                    const matchedAudio = document.querySelector('#match-audio');
+                    matchedAudio.volume = 0.08;
+                    matchedAudio.currentTime = 0;
+                    matchedAudio.play();
                 } else {
                     resetGameButton.classList.add('noClick');
                     setTimeout(() => {
