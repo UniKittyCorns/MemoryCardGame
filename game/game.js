@@ -15,6 +15,10 @@ const size = setGameSize(currentUser.game);
 const fullDeck = makeGameArray(cardDeck, size);
 const shuffledDeck = shuffleGameDeck(fullDeck);
 
+var pageAudio = document.getElementById('page-open-audio');
+pageAudio.volume = 0.3;
+pageAudio.play();
+
 let matched = 0;
 let tryCount = 0;
 let clicked = [];
@@ -146,6 +150,10 @@ resetGameButton.addEventListener('click', () => {
     resetGameButton.style.display = 'none';
     newGameButton.style.display = 'none';
     giveUpButton.style.display = 'block';
+
+    const restartAudio = document.querySelector('#restart-audio');
+    restartAudio.volume = 0.1;
+    restartAudio.play();
 });
 
 newGameButton.addEventListener('click', () => {
