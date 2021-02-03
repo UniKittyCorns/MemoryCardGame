@@ -1,5 +1,6 @@
 import { setUserScore } from '../game/game-utils.js';
-import { saveUsers, getUsers } from '../utils.js';
+import { saveUsers } from '../utils.js';
+import { renderScoreLine } from '../results/results-utils.js';
 
 
 
@@ -8,7 +9,7 @@ const test = QUnit.test;
 test('update trycount for specific user and difficulty in users array', (expect) => {
     const user = [
         {
-            name: "b-rad",
+            name: 'b-rad',
             levels:
             {
                 easy: [],
@@ -17,7 +18,7 @@ test('update trycount for specific user and difficulty in users array', (expect)
             }
         },
         {
-            name: "sally",
+            name: 'sally',
             levels:
             {
                 easy: [],
@@ -28,18 +29,17 @@ test('update trycount for specific user and difficulty in users array', (expect)
     ];
 
     saveUsers(user);
-    // const currentUsersArray = getUsers();
 
     const currentUser = {
-        name: "b-rad",
-        game: "easy"
-    }
+        name: 'b-rad',
+        game: 'easy'
+    };
 
     const tryCount = 32;
 
     const expected = [
         {
-            name: "b-rad",
+            name: 'b-rad',
             levels:
             {
                 easy: [32],
@@ -48,7 +48,7 @@ test('update trycount for specific user and difficulty in users array', (expect)
             }
         },
         {
-            name: "sally",
+            name: 'sally',
             levels:
             {
                 easy: [],
@@ -65,4 +65,25 @@ test('update trycount for specific user and difficulty in users array', (expect)
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
+});
+
+// renderScoreLine test
+test('render table line based on user data in local storage', (expect) => {
+    const userData = {
+        name: 'Casey',
+        levels:
+        {
+            easy: [7],
+            medium: [],
+            hard: [3],
+        }
+    };
+
+    const expected = `<tr><td>Casey</td><td>7</td><td></td><td>3</td></tr>`;
+
+    const actual = renderScoreLine(userData);
+
+    
+    expect.equal(actual.outerHTML, expected);
+
 });
