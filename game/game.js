@@ -33,7 +33,7 @@ export function checkEndGame(size, matched) {
     if (matched === size / 2) {
         const winMessage = document.createElement('p');
         winMessage.textContent = `Well done, you have completed level ${currentUser.game} in ${tryCount} turns`;
-
+        giveUpButton.style.display = 'none';
         const resultsButton = document.createElement('button');
         resultsButton.textContent = 'view high scores';
         resultsButton.addEventListener('click', () => {
