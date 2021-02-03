@@ -13,7 +13,6 @@ const gameBoard = document.querySelector('#game-board');
 const currentUser = getCurrentUser();
 const size = setGameSize(currentUser.game);
 const fullDeck = makeGameArray(cardDeck, size);
-console.log(fullDeck);
 const shuffledDeck = shuffleGameDeck(fullDeck);
 
 let matched = 0;
@@ -50,17 +49,9 @@ export function checkEndGame(size, matched) {
     }
 }
 
-
 export function makeGameArray(cardDeck, gameBoardSize) {
     const halfDeck = cardDeck.splice(0, gameBoardSize / 2);
     const fullDeck = halfDeck.concat(halfDeck);
-
-    // const gameboardArray = [];
-
-    // for (let i = gameBoardSize; i > 0; i--) {
-    //     const cardIndex = Math.floor(Math.random() * i);
-    //     gameboardArray.push(...fullDeck.splice(cardIndex, 1));
-    // }
 
     return fullDeck;
 }
@@ -76,9 +67,7 @@ export function shuffleGameDeck(_fullDeck) {
     return gameboardArray;
 }
 
-
 export function makeGameBoard(shuffledDeck) {
-
 
     for (let card of shuffledDeck) {
         const img = document.createElement('img');
@@ -143,10 +132,11 @@ resetGameButton.addEventListener('click', () => {
     matched = 0;
     clicked = [];
     tryCountDisplay.textContent = `try count: 0`;
-    console.log(fullDeck);
     const reshuffledDeck = shuffleGameDeck(fullDeck);
-    console.log(reshuffledDeck, fullDeck);
     makeGameBoard(reshuffledDeck);
+    resetGameButton.style.display = 'none';
+    newGameButton.style.display = 'none';
+    giveUpButton.style.display = 'block';
 });
 
 newGameButton.addEventListener('click', () => {
