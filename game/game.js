@@ -10,10 +10,16 @@ const resetGameButton = document.getElementById('reset-game');
 const newGameButton = document.getElementById('new-game');
 const gameBoard = document.querySelector('#game-board');
 
+const currentUser = getCurrentUser();
+const size = setGameSize(currentUser.game);
+const fullDeck = makeGameArray(cardDeck, size);
+console.log(fullDeck);
+const shuffledDeck = shuffleGameDeck(fullDeck);
+
 let matched = 0;
 let tryCount = 0;
 let clicked = [];
-const currentUser = getCurrentUser();
+
 difficultyLevelDisplay.textContent = `difficulty level: ${currentUser.game}`;
 
 export function setGameSize(size) {
@@ -25,9 +31,6 @@ export function setGameSize(size) {
         return 48;
     }
 }
-
-const size = setGameSize(currentUser.game);
-
 
 export function checkEndGame(size, matched) {
     if (matched === size / 2) {
@@ -52,20 +55,32 @@ export function makeGameArray(cardDeck, gameBoardSize) {
     const halfDeck = cardDeck.splice(0, gameBoardSize / 2);
     const fullDeck = halfDeck.concat(halfDeck);
 
+    // const gameboardArray = [];
+
+    // for (let i = gameBoardSize; i > 0; i--) {
+    //     const cardIndex = Math.floor(Math.random() * i);
+    //     gameboardArray.push(...fullDeck.splice(cardIndex, 1));
+    // }
+
+    return fullDeck;
+}
+
+export function shuffleGameDeck(_fullDeck) {
     const gameboardArray = [];
+    const copyFullDeck = _fullDeck.slice();
 
-    for (let i = gameBoardSize; i > 0; i--) {
+    for (let i = copyFullDeck.length; i > 0; i--) {
         const cardIndex = Math.floor(Math.random() * i);
-        gameboardArray.push(...fullDeck.splice(cardIndex, 1));
+        gameboardArray.push(...copyFullDeck.splice(cardIndex, 1));
     }
-
     return gameboardArray;
 }
 
-export function makeGameBoard(gameBoardSize) {
-    const gameboardArray = makeGameArray(cardDeck, gameBoardSize);
 
-    for (let card of gameboardArray) {
+export function makeGameBoard(shuffledDeck) {
+
+
+    for (let card of shuffledDeck) {
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
         img.classList.add('hidden');
@@ -93,6 +108,7 @@ export function makeGameBoard(gameBoardSize) {
                     gameBoard.classList.remove('noClick');
                     checkEndGame(size, matched);
                 } else {
+                    resetGameButton.classList.add('noClick');
                     setTimeout(() => {
                         clicked[0].classList.add('hidden');
                         clicked[1].classList.remove('hidden');
@@ -100,6 +116,7 @@ export function makeGameBoard(gameBoardSize) {
                         clicked[3].classList.remove('hidden');
                         clicked = [];
                         gameBoard.classList.remove('noClick');
+                        resetGameButton.classList.remove('noClick');
                     }, 2000);
 
                 }
@@ -112,7 +129,7 @@ export function makeGameBoard(gameBoardSize) {
     }
 }
 
-makeGameBoard(size);
+makeGameBoard(shuffledDeck);
 
 giveUpButton.addEventListener('click', () => {
     resetGameButton.style.display = 'block';
@@ -126,9 +143,14 @@ resetGameButton.addEventListener('click', () => {
     matched = 0;
     clicked = [];
     tryCountDisplay.textContent = `try count: 0`;
-    makeGameBoard(size);
+    console.log(fullDeck);
+    const reshuffledDeck = shuffleGameDeck(fullDeck);
+    console.log(reshuffledDeck, fullDeck);
+    makeGameBoard(reshuffledDeck);
 });
 
 newGameButton.addEventListener('click', () => {
     window.location = '../index.html';
 });
+
+
