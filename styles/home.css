@@ -1,1 +1,15 @@
-/* add home page styles here */
+form {
+    height: auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input.name {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
