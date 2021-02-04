@@ -27,7 +27,6 @@ section.main-section {
     justify-content: center;
     align-content: center;
     margin: 30px;
-    perspective: 1000px;
 }
 
 #game-board img {
@@ -49,7 +48,7 @@ img:hover {
 
 
 
-
+/*
 label {
     height: 125px;
     display: flex;
@@ -74,14 +73,14 @@ label {
     transform: rotateY(180deg);
 }
 
-.card .card-front { /* .transform in example */
+.card-front { 
     backface-visibility: hidden;
     height: 100%;
     position: absolute;
     width: 100%;
 }
 
-.card .card-back { /* .transform-active in example */
+.card-back { 
     transform: rotateY(180deg);
 }
 
@@ -89,6 +88,7 @@ label {
     width: 125px;
     height: 125px;
 }
+*/
 
 
 

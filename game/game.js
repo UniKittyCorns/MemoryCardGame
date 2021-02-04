@@ -71,31 +71,6 @@ export function makeGameBoard(shuffledDeck) {
 
     for (let card of shuffledDeck) {
         
-        /*
-        <label for="card">
-            <div class="card">
-                <div class="card-front"><img src="../assets/cards/mock-up-eight.png"></div>
-                <div class="card-back"><img src="../assets/cards/mock-up-back.png"></div>
-            </div>
-        </label>
-        */
-
-        const label = document.createElement('label');
-        label.htmlFor = 'card';
-
-        
-
-
-        return label;
-        
-        
-        
-        
-        
-        
-        
-        
-        
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
         img.classList.add('hidden', 'card-front');
