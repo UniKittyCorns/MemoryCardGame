@@ -19,7 +19,7 @@ let clicked = [];
 
 // Exported Functions
 export function makeGameBoard() {
-    const shuffledDeck = makeShuffledDeck()
+    const shuffledDeck = makeShuffledDeck();
     for (let card of shuffledDeck) {
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
@@ -100,10 +100,10 @@ function setGameSize() {
 
 function makeShuffledDeck() {
     const copiedDeck = cardDeck.slice();
-    copiedDeck.sort(function (a, b) { return 0.5 - Math.random() });  // chooses random cards
+    copiedDeck.sort(function(a, b) { return 0.5 - Math.random(); });  // chooses random cards
     const halfDeck = copiedDeck.splice(0, cardPairs);
     const fullDeck = halfDeck.concat(halfDeck);
-    const shuffledDeck = fullDeck.sort(function (a, b) { return 0.5 - Math.random() });
+    const shuffledDeck = fullDeck.sort(function(a, b) { return 0.5 - Math.random(); });
     return shuffledDeck;
 }
 
@@ -141,29 +141,34 @@ function setUserScore() {
 
 export function renderCard(card) {
 
-    const cardDiv = document.createElement('div');    
+    /*
+    <div id="gameCard" class="game-card">
+    <div class="card" id="card">
+        <img src="../assets/cards/mock-up-eight.png" class="card-face card-front">
+        <img src="../assets/cards/mock-up-back.png" class="card-face card-back">
+    </div>
+    </div>
+    */
 
-    const labelCard = document.createElement('label');
-    labelCard.htmlFor = 'card';
-    labelCard.classList.add('card');
-    cardDiv.append(labelCard);
+    const cardDivWrapper = document.createElement('div'); 
+    cardDiv.classList.add('game-card');
+    cardDiv.id = 'gameCard';
 
-    const divCardFront = document.createElement('div');
-    divCardFront.classList.add('card-front');
-    labelCard.append(divCardFront);
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.id = 'card';
+    cardDiv.append(cardDiv);
 
-    const imgFront = document.createElement('img');
-    imgFront.src = `../assets/cards/${card.img}`;
-    imgFront.value = card.id;
-    divCardFront.append(imgFront);
+    const frontImg = document.createElement('img');
+    frontImg.src = `../assets/cards/${card.img}`;
+    frontImg.value = card.id;
+    frontImg.classList.add('card-face', 'card-front');
+    cardDiv.append(frontImg);
 
-    const divCardBack = document.createElement('div');
-    divCardBack.classList.add('card-back');
-    labelCard.append(divCardBack);
-
-    const imgBack = document.createElement('img');
-    imgBack.src = `../assets/cards/mock-up-back.png`;  // switch to new image assets name 
-    divCardBack.append(imgBack);
+    const backImg = document.createElement('img');
+    backImg.src = `../assets/cards/mock-up-back.png`;  // switch to new image assets name
+    backImg.classList.add('card-face', 'card-back');
+    cardDiv.append(backImg);
      
-    return cardDiv;    
+    return cardDivWrapper;    
 }

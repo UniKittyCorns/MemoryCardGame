@@ -37,50 +37,38 @@ section.main-section {
 }
 
 img:hover {
-    box-shadow: 
-       -3px 3px black,
-       -3px 3px black,
-       -3px 3px black;
-    -webkit-transform: translateX(-1px);
-    transform: translateX(-1px);
+    box-shadow: -3px 3px rgb(185, 178, 185);
     transition: .2s ease-in-out;
 }
 
+/* flip test */
 
-
-/*
-label {
+.game-card {
     height: 125px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    perspective: 600;
-    position: relative;
     width: 125px;
+    perspective: 600px;
 }
 
 .card {
     height: 100%;
-    position: absolute;
-    transform-style: preserve-3d;
-    transition: all 1s ease-in-out;
     width: 100%;
-    
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
 }
 
-.card:hover {
+.card-face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
     transform: rotateY(180deg);
 }
 
-.card-front { 
-    backface-visibility: hidden;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-}
-
-.card-back { 
+.card.is-flipped {
     transform: rotateY(180deg);
 }
 
@@ -88,39 +76,14 @@ label {
     width: 125px;
     height: 125px;
 }
-*/
 
+/* flip test ends here */
 
-
-
-/*.card-front:active {
-    transform: rotateY(180deg);
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-}*/
-
-/*.card-front.hidden::after {
-    transform: rotateY(180deg);
-    transition: transform 0.8s;
-
-}*/
-
-/*.card-back:active {
-    transform: rotateY(180deg);
-    transition: transform 0.8s;
-
-}*/
-
-/*.card-back.hidden::before {
-    transform: rotateY(180deg);
-    transition: transform 0.8s;
-
-}*/
+/*
 
 .hidden {
     display: none;
-    transition: .5s;
-    
+    transition: .5s;    
 }
 
 .matched {
@@ -148,3 +111,4 @@ label {
 button {
     margin: 10px;
 }
+*/

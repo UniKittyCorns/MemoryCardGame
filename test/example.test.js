@@ -97,7 +97,7 @@ test('should render card within a label', (expect) => {
         img: 'mock-up-eight.png',
     };
 
-    const expected = `<div><label for="card" class="card"><div class="card-front"><img src="../assets/cards/mock-up-eight.png"></div><div class="card-back"><img src="../assets/cards/mock-up-back.png"></div></label></div>`;
+    const expected = `<div id="gameCard" class="game-card"><div class="card" id="card"><img src="../assets/cards/mock-up-eight.png" class="card-face card-front"><img src="../assets/cards/mock-up-back.png" class="card-face card-back"></div></div>`;
 
     const actual = renderCard(card);
 
