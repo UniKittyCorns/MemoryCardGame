@@ -23,3 +23,9 @@ playAgainButton.addEventListener('click', () => {
 changeLevelButton.addEventListener('click', () => {
     window.location = '../index.html';
 });
+
+const resetBoard = document.querySelector('#clear-local-storage');
+resetBoard.addEventListener('click', () => {
+    localStorage.clear();
+    location.reload();
+});
