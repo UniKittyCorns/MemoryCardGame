@@ -29,13 +29,6 @@ section.main-section {
     margin: 30px;
 }
 
-#game-board img {
-    margin: 10px;
-    height: 125px;
-    width: 125px;
-    border-radius: 5px;
-}
-
 img:hover {
     box-shadow: -3px 3px rgb(185, 178, 185);
     transition: .2s ease-in-out;
@@ -76,6 +69,7 @@ img:hover {
 .card img {
     width: 125px;
     height: 125px;
+    border-radius: 5px;
 }
 
 /* flip test ends here */
