@@ -1,13 +1,20 @@
-const caseyPic = document.getElementById('casey-f');
+const cards = document.querySelectorAll('.card');
+
+function flipCard() {
+    this.classList.toggle('flip');
+    const audio = document.querySelector('#flip-audio');
+    audio.volume = 0.1;
+    audio.play();
+}
+cards.forEach((card) => card.addEventListener('click', flipCard));
+
+/*const caseyPic = document.getElementById('casey-f');
 const caseyInfo = document.getElementById('casey-b');
 
 caseyPic.addEventListener('click', () => {
     const audio = document.querySelector('#flip-audio');
     audio.volume = 0.1;
     audio.play();
-
-    caseyPic.classList.add('hidden');
-    caseyInfo.classList.remove('hidden');
 });
 
 caseyInfo.addEventListener('click', () => {
@@ -81,3 +88,7 @@ sorayaInfo.addEventListener('click', () => {
     sorayaPic.classList.remove('hidden');
     sorayaInfo.classList.add('hidden');
 });
+
+*/
+
+
