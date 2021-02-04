@@ -1,13 +1,150 @@
-.hidden {
-    display: none;
+section.main-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+#display-wrapper {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#display-wrapper button {
+    margin: 0px;
+}
+
+#game-board {
+    width: 65%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 30px;
 }
 
 #game-board img {
-    padding: .25rem;
-    height: 100px;
-    width: 100px;
+    margin: 10px;
+    height: 125px;
+    width: 125px;
+    border-radius: 5px;
+}
+
+img:hover {
+    box-shadow: 
+       -3px 3px black,
+       -3px 3px black,
+       -3px 3px black;
+    -webkit-transform: translateX(-1px);
+    transform: translateX(-1px);
+    transition: .2s ease-in-out;
+}
+
+
+
+/*
+label {
+    height: 125px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    perspective: 600;
+    position: relative;
+    width: 125px;
+}
+
+.card {
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    width: 100%;
+    
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.card-front { 
+    backface-visibility: hidden;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.card-back { 
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 125px;
+    height: 125px;
+}
+*/
+
+
+
+
+/*.card-front:active {
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}*/
+
+/*.card-front.hidden::after {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+
+}*/
+
+/*.card-back:active {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+
+}*/
+
+/*.card-back.hidden::before {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+
+}*/
+
+.hidden {
+    display: none;
+    transition: .5s;
+    
+}
+
+.matched {
+    opacity: .5;
+    transition: .5s;
+}
+
+.matched:hover {
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
 }
 
 .noClick {
     pointer-events: none;
+}
+
+#button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
 }

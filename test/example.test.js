@@ -1,4 +1,4 @@
-import { setUserScore } from '../game/game-utils.js';
+import { renderCard, setUserScore } from '../game/game-utils.js';
 import { saveUsers } from '../utils.js';
 import { renderScoreLine } from '../results/results-utils.js';
 
@@ -83,6 +83,23 @@ test('render table line based on user data in local storage; returns "-" for emp
 
     const actual = renderScoreLine(userData);
 
+
+    expect.equal(actual.outerHTML, expected);
+
+});
+
+// renderCard test
+test('should render card within a label', (expect) => {
+
+    const card = {
+        id: 8,
+        name: 'eight',
+        img: 'mock-up-eight.png',
+    };
+
+    const expected = `<div><label for="card" class="card"><div class="card-front"><img src="../assets/cards/mock-up-eight.png"></div><div class="card-back"><img src="../assets/cards/mock-up-back.png"></div></label></div>`;
+
+    const actual = renderCard(card);
 
     expect.equal(actual.outerHTML, expected);
 
