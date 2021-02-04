@@ -1,0 +1,46 @@
+.uniKittyCorns{
+    width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-back, .card-front {
+    margin: 10px;
+    width: 250px;
+    height: 250px;
+    padding: .25rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+    border-radius: 5px;
+} 
+
+.card-back{
+    background-color: aquamarine;
+    text-align: center;
+    box-shadow: 2px 2px 2px;
+    transform: rotateY(180deg);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front{
+    position: relative;
+    backface-visibility: hidden;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    transition: transform .7s;
+    transform-style: preserve-3d;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
