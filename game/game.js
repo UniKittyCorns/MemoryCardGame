@@ -70,17 +70,45 @@ export function shuffleGameDeck(_fullDeck) {
 export function makeGameBoard(shuffledDeck) {
 
     for (let card of shuffledDeck) {
+        
+        /*
+        <label for="card">
+            <div class="card">
+                <div class="card-front"><img src="../assets/cards/mock-up-eight.png"></div>
+                <div class="card-back"><img src="../assets/cards/mock-up-back.png"></div>
+            </div>
+        </label>
+        */
+
+        const label = document.createElement('label');
+        label.htmlFor = 'card';
+
+        
+
+
+        return label;
+        
+        
+        
+        
+        
+        
+        
+        
+        
         const img = document.createElement('img');
         img.src = `../assets/cards/${card.img}`;
-        img.classList.add('hidden');
+        img.classList.add('hidden', 'card-front');
         img.value = card.id;
 
         const imgBack = document.createElement('img');
+        imgBack.classList.add('card-back');
         imgBack.src = `../assets/cards/mock-up-back.png`;  // switch to new image assets name
 
         imgBack.addEventListener('click', () => {
             imgBack.classList.add('hidden');
             img.classList.remove('hidden');
+
             clicked.push(img, imgBack);  // even index = front of card, odd index = back of card
             if (clicked.length === 4) {
                 gameBoard.classList.add('noClick');

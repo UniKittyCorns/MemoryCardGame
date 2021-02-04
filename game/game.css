@@ -47,15 +47,85 @@ img:hover {
     transition: .2s ease-in-out;
 }
 
+
+
+
+label {
+    height: 125px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    perspective: 600;
+    position: relative;
+    width: 125px;
+}
+
+.card {
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    width: 100%;
+    
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.card .card-front { /* .transform in example */
+    backface-visibility: hidden;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.card .card-back { /* .transform-active in example */
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 125px;
+    height: 125px;
+}
+
+
+
+
+/*.card-front:active {
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}*/
+
+/*.card-front.hidden::after {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+
+}*/
+
+/*.card-back:active {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+
+}*/
+
+/*.card-back.hidden::before {
+    transform: rotateY(180deg);
+    transition: transform 0.8s;
+
+}*/
+
 .hidden {
     display: none;
-    transition: .5s ease-in-out;
-    transform: rotateY(180deg);
+    transition: .5s;
+    
 }
 
 .matched {
     opacity: .5;
-    transition: .5s ease-in;
+    transition: .5s;
 }
 
 .matched:hover {
