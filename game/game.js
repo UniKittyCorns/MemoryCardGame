@@ -8,14 +8,14 @@ const difficultyLevelDisplay = document.getElementById('difficulty-level');
 
 // animation flip test
 
-const card = document.getElementById('card');
+/*const card = document.getElementById('card');
 
 card.addEventListener('click', () => {
     card.classList.toggle('is-flipped');
-});
+});*/
 
 
-/*
+
 // Audio Elements
 var pageAudio = document.getElementById('page-open-audio');
 pageAudio.volume = 0.2;
@@ -49,4 +49,3 @@ newGameButton.addEventListener('click', () => {
 
 // Called Functions
 makeGameBoard();
-*/
