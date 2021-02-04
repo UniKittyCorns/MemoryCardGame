@@ -20,8 +20,14 @@ img {
     border-radius: 5px;
 } 
 
+.card h1 {
+    color: rgb(89, 62, 169);
+    text-shadow: 2px 1px rgba(25, 106, 56, 0.5);
+}
+
 .card-back{
-    background-color: aquamarine;
+    color: rgb(89, 62, 169);
+    background-color: rgb(97, 205, 171);
     text-align: center;
     box-shadow: 2px 2px 2px;
     transform: rotateY(180deg);
@@ -43,4 +49,7 @@ img {
 
 .card.flip {
     transform: rotateY(180deg);
+}
+p{
+    margin: 5px;
 }
