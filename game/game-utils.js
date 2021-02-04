@@ -30,6 +30,10 @@ export function makeGameBoard() {
         imgBack.src = `../assets/cards/mock-up-back.png`;  // switch to new image assets name
 
         imgBack.addEventListener('click', () => {
+            const audio = document.querySelector('#flip-audio');
+            audio.volume = 0.1;
+            audio.play();
+
             imgBack.classList.add('hidden');
             img.classList.remove('hidden');
             clicked.push(img, imgBack);  // even index = front of card, odd index = back of card
@@ -37,6 +41,7 @@ export function makeGameBoard() {
                 gameBoard.classList.add('noClick');
                 tryCount++;
                 tryCountDisplay.textContent = `try count: ${tryCount}`;
+
                 const clicked1Id = clicked[0].value;
                 const clicked2Id = clicked[2].value;
                 if (clicked1Id === clicked2Id) {
@@ -44,7 +49,12 @@ export function makeGameBoard() {
                     clicked[2].classList.add('matched');
                     gameBoard.classList.remove('noClick');
                     matched++;
-                    console.log(matched, cardPairs);
+
+                    const matchedAudio = document.querySelector('#match-audio');
+                    matchedAudio.volume = 0.08;
+                    matchedAudio.currentTime = 0;
+                    matchedAudio.play();
+
                     checkEndGame();
                     clicked = [];
                 } else {
@@ -99,6 +109,10 @@ function makeShuffledDeck() {
 
 function checkEndGame() {
     if (matched === cardPairs) {
+        const winAudio = document.querySelector('#win-audio');
+        winAudio.volume = 0.2;
+        winAudio.play();
+
         const winMessage = document.createElement('p');
         winMessage.textContent = `Well done, you have completed level ${currentUser.game} in ${tryCount} turns`;
         giveUpButton.style.display = 'none';

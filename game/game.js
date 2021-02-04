@@ -6,6 +6,11 @@ const resetGameButton = document.getElementById('reset-game');
 const newGameButton = document.getElementById('new-game');
 const difficultyLevelDisplay = document.getElementById('difficulty-level');
 
+// Audio Elements
+var pageAudio = document.getElementById('page-open-audio');
+pageAudio.volume = 0.2;
+pageAudio.play();
+
 // Rendered Elements
 difficultyLevelDisplay.textContent = `difficulty level: ${currentUser.game}`;
 
@@ -22,6 +27,10 @@ resetGameButton.addEventListener('click', () => {
     resetGameButton.style.display = 'none';
     newGameButton.style.display = 'none';
     giveUpButton.style.display = 'block';
+
+    const restartAudio = document.querySelector('#restart-audio');
+    restartAudio.volume = 0.1;
+    restartAudio.play();
 });
 
 newGameButton.addEventListener('click', () => {

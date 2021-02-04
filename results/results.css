@@ -1,0 +1,31 @@
+.Title{
+    text-align: center;
+}
+
+#high-header{
+    font-size: 1.5rem;
+}
+
+th{
+    width: 150px;
+    padding: 10px;
+    color: rgb(97, 205, 171);
+    font-size: 1.1rem;
+}
+
+td{
+    text-align: center;
+    padding: 10px;
+}
+
+#results-table{
+    font-family: 'Press Start 2P', sans-serif;
+    background-color:rgb(212, 243, 233);
+    border-radius: 5px;
+}
+
+#button-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
