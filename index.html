@@ -24,33 +24,45 @@
         </div>
 
     </header>
+
     <main>
+        <div class="scroll">
+            <marquee behavior="scroll" direction="right">
+                <img src="../assets/cards/mock-up-one.png" , width="125">
+                <img src="../assets/cards/mock-up-two.png" , width="125">
+                <img src="../assets/cards/mock-up-three.png" , width="125">
+                <img src="../assets/cards/mock-up-four.png" , width="125">
+                <img src="../assets/cards/mock-up-five.png" , width="125">
+                <img src="../assets/cards/mock-up-six.png" , width="125">
+            </marquee>
+        </div>
         <section class="main-section">
 
+
             <p>It's matching time! Play your basic matching memory game, but vampire style!</p>
-            <section class="form">
-                <form>
-                    <label>
-                        <span>Name:</span>
-                        <input class="name" name="name" required="true">
-                    </label>
-                    <br>
-                    <span class="Difficulty Level">Choose your difficulty:</span>
-                    <label>
-                        <span class="card">12 Card</span>
-                        <input type="radio" name="game" value="easy" required="true">
-                    </label>
-                    <label>
-                        <span class="card">24 Card</span>
-                        <input type="radio" name="game" value="medium">
-                    </label>
-                    <label>
-                        <span class="card">48 Card</span>
-                        <input type="radio" name="game" value="hard">
-                    </label>
-                    <button>Play</button>
-                </form>
-            </section>
+
+            <form>
+                <label>
+                    <span>Name:</span>
+                    <input class="name" name="name" required="true">
+                </label>
+                <br>
+                <span class="Difficulty Level">Choose your difficulty:</span>
+                <label class="checkbox">
+                    <span class="card">12 Card</span>
+                    <input type="radio" name="game" value="easy" required="true">
+                </label>
+                <label class="checkbox">
+                    <span class="card">24 Card</span>
+                    <input type="radio" name="game" value="medium">
+                </label>
+                <label class="checkbox">
+                    <span class="card">48 Card</span>
+                    <input type="radio" name="game" value="hard">
+                </label>
+                <button>Play</button>
+            </form>
+        </section>
 
         </section>
     </main>

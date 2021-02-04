@@ -1,13 +1,96 @@
-.hidden {
-    display: none;
+section.main-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
 }
 
-#game-board img {
-    padding: .25rem;
-    height: 100px;
-    width: 100px;
+#display-wrapper {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#display-wrapper button {
+    margin: 0px;
+}
+
+#game-board {
+    width: 65%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 30px;
+}
+
+img:hover {
+    box-shadow: -3px 3px rgb(185, 178, 185);
+    transition: .2s ease-in-out;
+}
+
+/* flip test */
+
+.game-card {
+    margin: 15px;
+    height: 125px;
+    width: 125px;
+    perspective: 600px;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.card-face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 125px;
+    height: 125px;
+    border-radius: 5px;
+}
+
+/* flip test ends here */
+
+
+
+.matched {
+    opacity: .5;
 }
 
 .noClick {
     pointer-events: none;
+}
+
+#button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
 }
