@@ -44,6 +44,7 @@ img:hover {
 /* flip test */
 
 .game-card {
+    margin: 15px;
     height: 125px;
     width: 125px;
     perspective: 600px;
@@ -79,22 +80,11 @@ img:hover {
 
 /* flip test ends here */
 
-/*
 
-.hidden {
-    display: none;
-    transition: .5s;    
-}
 
 .matched {
     opacity: .5;
     transition: .5s;
-}
-
-.matched:hover {
-    box-shadow: none;
-    -webkit-transform: none;
-    transform: none;
 }
 
 .noClick {
@@ -111,4 +101,3 @@ img:hover {
 button {
     margin: 10px;
 }
-*/
