@@ -1,5 +1,5 @@
 import { renderScoreLine } from './results-utils.js';
-import { getUsers } from '../utils.js';
+import { getUsers, getCurrentUser } from '../utils.js';
 
 const resultsTable = document.querySelector('#results-table');
 const playAgainButton = document.getElementById('play-again');
@@ -12,7 +12,12 @@ for (let user of userData) {
 }
 
 playAgainButton.addEventListener('click', () => {
-    window.location = '../game/';
+    const currentUser = getCurrentUser();
+    if (currentUser === null) {
+        window.location = '../index.html';
+    } else {
+        window.location = '../game/';
+    }
 });
 
 changeLevelButton.addEventListener('click', () => {
