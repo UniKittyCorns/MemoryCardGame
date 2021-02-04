@@ -31,10 +31,8 @@ function flipCard() {
         const clicked1Id = clicked[0].value;
         const clicked2Id = clicked[1].value;
         if (clicked1Id === clicked2Id) {
-            clicked[0].classList.add('matched', 'card-front');
-            clicked[1].classList.add('matched', 'card-front');
-            clicked[0].classList.remove('card-back');
-            clicked[1].classList.remove('card-back');
+            clicked[0].classList.add('noClick');
+            clicked[1].classList.add('noClick');
 
             gameBoard.classList.remove('noClick');
             matched++;
@@ -64,9 +62,6 @@ export function makeGameBoard() {
     const shuffledDeck = makeShuffledDeck();
     for (let card of shuffledDeck) {
         const cardOnBoard = renderCard(card);
-
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => card.addEventListener('click', flipCard));
         gameBoard.append(cardOnBoard);
     }
 }
@@ -142,6 +137,7 @@ export function renderCard(card) {
     cardDiv.id = 'card';
     cardDiv.value = card.id;
     cardDivWrapper.append(cardDiv);
+    cardDiv.addEventListener('click', flipCard);
 
     const frontImg = document.createElement('img');
     frontImg.src = `../assets/cards/${card.img}`;

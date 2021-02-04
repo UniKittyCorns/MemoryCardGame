@@ -84,7 +84,6 @@ img:hover {
 
 .matched {
     opacity: .5;
-    transition: .5s;
 }
 
 .noClick {
