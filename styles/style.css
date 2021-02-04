@@ -25,14 +25,21 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px black solid;
+    border-bottom: 2px black solid;
     background-image: url('../assets/blood1.png');
     background-size: 300px;
     background-repeat: no-repeat;
-    background-position: 290px -96px;
+    background-position: 47% 99%;
 
+}
 
+.scroll {
+    width: 100%;
+    margin-top: 25px;
+}
 
+.scroll img {
+    border-radius: 5px;
 }
 
 h1 {
