@@ -89,10 +89,10 @@ function setGameSize() {
 
 function makeShuffledDeck() {
     const copiedDeck = cardDeck.slice();
-    copiedDeck.sort(function (a, b) { return 0.5 - Math.random(); });  // chooses random cards
+    copiedDeck.sort(function(a, b) { return 0.5 - Math.random(); });  // chooses random cards
     const halfDeck = copiedDeck.splice(0, cardPairs);
     const fullDeck = halfDeck.concat(halfDeck);
-    const shuffledDeck = fullDeck.sort(function (a, b) { return 0.5 - Math.random(); });
+    const shuffledDeck = fullDeck.sort(function(a, b) { return 0.5 - Math.random(); });
     return shuffledDeck;
 }
 
@@ -145,7 +145,7 @@ export function renderCard(card) {
     cardDiv.append(frontImg);
 
     const backImg = document.createElement('img');
-    backImg.src = `../assets/cards/mock-up-back.png`;  // switch to new image assets name
+    backImg.src = `../assets/cards/card-back-pink.png`;
     backImg.classList.add('card-face', 'card-back');
     cardDiv.append(backImg);
 
