@@ -33,28 +33,7 @@ header {
 
 }
 
-/*
-.marquee {
-    width: 100%;
-    margin-top: 25px;
-    position: relative;
-    overflow-x: hidden;
-}
-
-.track {
-    white-space: nowrap;
-    will-change: transform;
-    animation: marquee 32s linear infinite;
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {transform: translateX(-50%);}
-}
-*/
-
+/*  marquee test
 .marquee {
     position: relative;
     width: 100vw;
@@ -78,6 +57,30 @@ header {
     from { transform: translateX(-10%); }
     to { transform: translateX(0%); }
   }
+
+slideshow test
+
+.slideshow {
+    background: url();
+    position: relative;
+    overflow: hidden;
+    height: 125px;
+}
+
+.images {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 300%;
+    animation: slideshow 10s linear infinite;
+}
+
+@keyframes slideshow {
+    0% { left: 0; }
+    100% { left: 200%; }
+}
+*/
 
 h1 {
     font-family: 'Chonburi', cursive;
