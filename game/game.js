@@ -16,7 +16,7 @@ const fullDeck = makeGameArray(cardDeck, size);
 const shuffledDeck = shuffleGameDeck(fullDeck);
 
 var pageAudio = document.getElementById('page-open-audio');
-pageAudio.volume = 0.3;
+pageAudio.volume = 0.2;
 pageAudio.play();
 
 let matched = 0;
@@ -37,6 +37,10 @@ export function setGameSize(size) {
 
 export function checkEndGame(size, matched) {
     if (matched === size / 2) {
+        const winAudio = document.querySelector('#win-audio');
+        winAudio.volume = 0.1;
+        winAudio.play();
+
         const winMessage = document.createElement('p');
         winMessage.textContent = `Well done, you have completed level ${currentUser.game} in ${tryCount} turns`;
         giveUpButton.style.display = 'none';
