@@ -18,41 +18,43 @@ let tryCount = 0;
 let clicked = [];
 
 function flipCard() {
-    this.classList.toggle('is-flipped');
-    const audio = document.querySelector('#flip-audio');
-    audio.volume = 0.1;
-    audio.play();
-    clicked.push(this);
-    if (clicked.length === 2) {
-        gameBoard.classList.add('noClick');
-        tryCount++;
-        tryCountDisplay.textContent = `try count: ${tryCount}`;
+    if (clicked[0] !== this) {
+        this.classList.toggle('is-flipped');
+        const audio = document.querySelector('#flip-audio');
+        audio.volume = 0.1;
+        audio.play();
+        clicked.push(this);
+        if (clicked.length === 2) {
+            gameBoard.classList.add('noClick');
+            tryCount++;
+            tryCountDisplay.textContent = `try count: ${tryCount}`;
 
-        const clicked1Id = clicked[0].value;
-        const clicked2Id = clicked[1].value;
-        if (clicked1Id === clicked2Id) {
-            clicked[0].classList.add('noClick');
-            clicked[1].classList.add('noClick');
+            const clicked1Id = clicked[0].value;
+            const clicked2Id = clicked[1].value;
+            if (clicked1Id === clicked2Id) {
+                clicked[0].classList.add('noClick');
+                clicked[1].classList.add('noClick');
 
-            gameBoard.classList.remove('noClick');
-            matched++;
-
-            const matchedAudio = document.querySelector('#match-audio');
-            matchedAudio.volume = 0.08;
-            matchedAudio.currentTime = 0;
-            matchedAudio.play();
-
-            checkEndGame();
-            clicked = [];
-        } else {
-            resetGameButton.classList.add('noClick');
-            setTimeout(() => {
-                clicked[0].classList.toggle('is-flipped');
-                clicked[1].classList.toggle('is-flipped');
                 gameBoard.classList.remove('noClick');
-                resetGameButton.classList.remove('noClick');
+                matched++;
+
+                const matchedAudio = document.querySelector('#match-audio');
+                matchedAudio.volume = 0.08;
+                matchedAudio.currentTime = 0;
+                matchedAudio.play();
+
+                checkEndGame();
                 clicked = [];
-            }, 2000);
+            } else {
+                resetGameButton.classList.add('noClick');
+                setTimeout(() => {
+                    clicked[0].classList.toggle('is-flipped');
+                    clicked[1].classList.toggle('is-flipped');
+                    gameBoard.classList.remove('noClick');
+                    resetGameButton.classList.remove('noClick');
+                    clicked = [];
+                }, 2000);
+            }
         }
     }
 }
@@ -89,10 +91,10 @@ function setGameSize() {
 
 function makeShuffledDeck() {
     const copiedDeck = cardDeck.slice();
-    copiedDeck.sort(function(a, b) { return 0.5 - Math.random(); });  // chooses random cards
+    copiedDeck.sort(function (a, b) { return 0.5 - Math.random(); });  // chooses random cards
     const halfDeck = copiedDeck.splice(0, cardPairs);
     const fullDeck = halfDeck.concat(halfDeck);
-    const shuffledDeck = fullDeck.sort(function(a, b) { return 0.5 - Math.random(); });
+    const shuffledDeck = fullDeck.sort(function (a, b) { return 0.5 - Math.random(); });
     return shuffledDeck;
 }
 
