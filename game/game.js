@@ -38,7 +38,7 @@ export function setGameSize(size) {
 export function checkEndGame(size, matched) {
     if (matched === size / 2) {
         const winAudio = document.querySelector('#win-audio');
-        winAudio.volume = 0.1;
+        winAudio.volume = 0.2;
         winAudio.play();
 
         const winMessage = document.createElement('p');
