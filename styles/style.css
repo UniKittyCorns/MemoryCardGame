@@ -32,55 +32,16 @@ header {
     background-position: 47% 99%;
 
 }
+.images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
-/*  marquee test
-.marquee {
-    position: relative;
-    width: 100vw;
-    max-width: 100%;
-    height: 200px;
-    overflow-x: hidden;
-  }
-
-.marquee img {
+img{
+    margin: 10px;
     border-radius: 5px;
 }
-  
-  .track {
-    position: absolute;
-    white-space: nowrap;
-    will-change: transform;
-    animation: marquee 5s linear infinite;
-  }
-  
-  @keyframes marquee {
-    from { transform: translateX(-10%); }
-    to { transform: translateX(0%); }
-  }
-
-slideshow test
-
-.slideshow {
-    background: url();
-    position: relative;
-    overflow: hidden;
-    height: 125px;
-}
-
-.images {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 300%;
-    animation: slideshow 10s linear infinite;
-}
-
-@keyframes slideshow {
-    0% { left: 0; }
-    100% { left: 200%; }
-}
-*/
 
 h1 {
     font-family: 'Chonburi', cursive;
@@ -118,7 +79,7 @@ main {
 button {
     height: 30px;
     background: black;
-    color: white;
+    color: rgb(170, 170, 172);
     font-family: 'Prompt', sans-serif;
     font-weight: 400;
     border: rgb(97, 205, 171) 3px solid;
@@ -141,6 +102,11 @@ button:focus {
 }
 
 input {
-    background-color: rgb(37, 37, 37);
-    color: white;
+    background-color: rgb(170, 170, 172);
+    color:  #1d132c;
+    font-weight: bolder;
+}
+
+input.name{
+    height: 30px;
 }
