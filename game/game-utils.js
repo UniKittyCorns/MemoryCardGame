@@ -17,6 +17,64 @@ let matched = 0;
 let tryCount = 0;
 let clicked = [];
 
+
+// Exported Functions
+export function makeGameBoard() {
+    const shuffledDeck = makeShuffledDeck();
+    for (let card of shuffledDeck) {
+        const cardOnBoard = renderCard(card);
+        gameBoard.append(cardOnBoard);
+    }
+}
+
+// Game Utility Functions
+function setGameSize() {
+    const difficulty = currentUser.game;
+    if (difficulty === 'easy') {
+        return 6;
+    } else if (difficulty === 'medium') {
+        return 12;
+    } else {
+        return 24;
+    }
+}
+
+// Using game size, will randomly choose number of card pairs needed, then shuffles them
+function makeShuffledDeck() {
+    const copiedDeck = cardDeck.slice();
+    copiedDeck.sort(function (a, b) { return 0.5 - Math.random(); });  // eslint-disable-line
+    const halfDeck = copiedDeck.splice(0, cardPairs);
+    const fullDeck = halfDeck.concat(halfDeck);
+    const shuffledDeck = fullDeck.sort(function (a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
+    return shuffledDeck;
+}
+
+// Looks at shuffled deck array and appends those cards to the game board
+function renderCard(card) {
+    const cardDivWrapper = document.createElement('div');
+    cardDivWrapper.classList.add('game-card');
+
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.id = 'card';
+    cardDiv.value = card.id;
+    cardDivWrapper.append(cardDiv);
+    cardDiv.addEventListener('click', flipCard);
+
+    const frontImg = document.createElement('img');
+    frontImg.src = `../assets/cards/${card.img}`;
+    frontImg.classList.add('card-face', 'card-front');
+    cardDiv.append(frontImg);
+
+    const backImg = document.createElement('img');
+    backImg.src = `../assets/cards/card-back-pink.png`;
+    backImg.classList.add('card-face', 'card-back');
+    cardDiv.append(backImg);
+
+    return cardDivWrapper;
+}
+
+// On click, flips card over and checks for a match
 function flipCard() {
     if (clicked[0] !== this) {
         this.classList.toggle('is-flipped');
@@ -59,45 +117,7 @@ function flipCard() {
     }
 }
 
-// Exported Functions
-export function makeGameBoard() {
-    const shuffledDeck = makeShuffledDeck();
-    for (let card of shuffledDeck) {
-        const cardOnBoard = renderCard(card);
-        gameBoard.append(cardOnBoard);
-    }
-}
-
-
-export function resetGameState() {
-    gameBoard.textContent = '';
-    tryCount = 0;
-    matched = 0;
-    clicked = [];
-    tryCountDisplay.textContent = `try count: ${tryCount}`;
-}
-
-// Game Utility Functions
-function setGameSize() {
-    const difficulty = currentUser.game;
-    if (difficulty === 'easy') {
-        return 6;
-    } else if (difficulty === 'medium') {
-        return 12;
-    } else {
-        return 24;
-    }
-}
-
-function makeShuffledDeck() {
-    const copiedDeck = cardDeck.slice();
-    copiedDeck.sort(function (a, b) { return 0.5 - Math.random(); });  // chooses random cards
-    const halfDeck = copiedDeck.splice(0, cardPairs);
-    const fullDeck = halfDeck.concat(halfDeck);
-    const shuffledDeck = fullDeck.sort(function (a, b) { return 0.5 - Math.random(); });
-    return shuffledDeck;
-}
-
+// Checks if all cards have matched
 function checkEndGame() {
     if (matched === cardPairs) {
         const winAudio = document.querySelector('#win-audio');
@@ -105,7 +125,7 @@ function checkEndGame() {
         winAudio.play();
 
         const winMessage = document.createElement('p');
-        winMessage.textContent = `Well done, you have completed level ${currentUser.game} in ${tryCount} turns`;
+        winMessage.textContent = `Well done ${currentUser.name}, you have completed level ${currentUser.game} in ${tryCount} turns`;
         giveUpButton.style.display = 'none';
         const resultsButton = document.createElement('button');
         resultsButton.textContent = 'view high scores';
@@ -120,6 +140,7 @@ function checkEndGame() {
     }
 }
 
+// Saves user score to local storage
 function setUserScore() {
     const currentUsersArray = getUsers();
     for (let user of currentUsersArray) {
@@ -130,26 +151,11 @@ function setUserScore() {
     return currentUsersArray;
 }
 
-export function renderCard(card) {
-    const cardDivWrapper = document.createElement('div');
-    cardDivWrapper.classList.add('game-card');
-
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('card');
-    cardDiv.id = 'card';
-    cardDiv.value = card.id;
-    cardDivWrapper.append(cardDiv);
-    cardDiv.addEventListener('click', flipCard);
-
-    const frontImg = document.createElement('img');
-    frontImg.src = `../assets/cards/${card.img}`;
-    frontImg.classList.add('card-face', 'card-front');
-    cardDiv.append(frontImg);
-
-    const backImg = document.createElement('img');
-    backImg.src = `../assets/cards/card-back-pink.png`;
-    backImg.classList.add('card-face', 'card-back');
-    cardDiv.append(backImg);
-
-    return cardDivWrapper;
+// Starts the game over
+export function resetGameState() {
+    gameBoard.textContent = '';
+    tryCount = 0;
+    matched = 0;
+    clicked = [];
+    tryCountDisplay.textContent = `try count: ${tryCount}`;
 }
