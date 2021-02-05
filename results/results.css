@@ -34,3 +34,21 @@ td{
     display: flex;
     justify-content: center;
 }
+
+#clear-local-storage {
+    border: rgb(251, 1, 1) 3px solid;
+}
+
+#clear-local-storage:hover {
+    background:rgb(251, 1, 1);
+    color: black;
+    border: black 3px solid;
+    border-radius: 5px;
+}
+
+#clear-local-storage:focus {
+    background: white;
+    color: black;
+    border: rgb(251, 1, 1) 3px solid;
+    border-radius: 5px;
+}

@@ -57,7 +57,7 @@ section.main-section {
 }
 
 img:hover {
-    box-shadow: -3px 3px rgb(185, 178, 185);
+    box-shadow: 3px 3px rgb(185, 178, 185);
     transition: .2s ease-in-out;
 }
 
