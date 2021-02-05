@@ -19,14 +19,39 @@ section.main-section {
     margin: 0px;
 }
 
-#game-board {
-    width: 65%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
+#game-board.easy-gameboard {
+    display: grid;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
     margin: 30px;
+}
+
+#game-board.medium-gameboard {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin: 30px;
+}
+
+#game-board.easy-gameboard.game-card, #game-board.medium-gameboard.game-card {
+    margin: 15px;
+}
+
+#game-board.hard-gameboard {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 30px;
+}
+
+#game-board.hard-gameboard.game-card {
+    margin: 15px;
 }
 
 img:hover {
@@ -37,7 +62,6 @@ img:hover {
 /* flip test */
 
 .game-card {
-    margin: 15px;
     height: 125px;
     width: 125px;
     perspective: 600px;

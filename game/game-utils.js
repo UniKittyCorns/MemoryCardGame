@@ -31,10 +31,14 @@ export function makeGameBoard() {
 function setGameSize() {
     const difficulty = currentUser.game;
     if (difficulty === 'easy') {
+        gameBoard.classList.add('easy-gameboard');
         return 6;
+        
     } else if (difficulty === 'medium') {
+        gameBoard.classList.add('medium-gameboard');
         return 12;
     } else {
+        gameBoard.classList.add('hard-gameboard');
         return 24;
     }
 }
