@@ -21,14 +21,14 @@ blood splatter image credit:
 https://www.pikpng.com/pngvi/iTbJib_blood-spatter-png-gunshot-blood-splatter-transparent-clipart/
 
 Sounds:
-Game Start Sound:
+- Game Start Sound:
 https://www.zapsplat.com/music/designed-cinematic-impact-hit-dark-heavy-and-metallic-with-a-scary-vibe-1/
-Click Sound:
+- Click Sound:
 https://www.zapsplat.com/music/multimedia-click-1/
-Match Sound:
+- Match Sound:
 https://www.zapsplat.com/music/horror-hit-violin-stab-with-reverb-great-for-creating-shock-jump-scare-1/
-Reset Sound:
+- Reset Sound:
 https://www.zapsplat.com/music/action-enter-spacy/
-Win Sound:
+- Win Sound:
 https://freesound.org/people/Fupicat/sounds/521642/
 
