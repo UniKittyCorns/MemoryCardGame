@@ -7,9 +7,45 @@ form {
 }
 
 input.name {
+    height: 30px;
     display: flex; 
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+}
+
+
+img{
+    margin: 10px;
+    border-radius: 5px;
+}
+
+input {
+    background-color: rgb(170, 170, 172);
+    color:  #1d132c;
+    font-weight: bolder;
+}
+
+input[type='radio']:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+    background-color: rgb(170, 170, 172);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 0px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 15px;
+    background-color:rgb(97, 205, 171);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    position: relative;
+    border: 0px solid white;
 }
