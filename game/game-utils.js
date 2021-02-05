@@ -54,7 +54,7 @@ function makeShuffledDeck() {
 }
 
 // Looks at shuffled deck array and appends those cards to the game board
-function renderCard(card) {
+export function renderCard(card) {
     const cardDivWrapper = document.createElement('div');
     cardDivWrapper.classList.add('game-card');
 
@@ -145,7 +145,7 @@ function checkEndGame() {
 }
 
 // Saves user score to local storage
-function setUserScore() {
+export function setUserScore() {
     const currentUsersArray = getUsers();
     for (let user of currentUsersArray) {
         if (user.name === currentUser.name) {
