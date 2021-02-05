@@ -33,7 +33,7 @@ function setGameSize() {
     if (difficulty === 'easy') {
         gameBoard.classList.add('easy-gameboard');
         return 6;
-        
+
     } else if (difficulty === 'medium') {
         gameBoard.classList.add('medium-gameboard');
         return 12;
