@@ -1,72 +1,6 @@
-import { renderCard, setUserScore } from '../game/game-utils.js';
-import { saveUsers } from '../utils.js';
 import { renderScoreLine } from '../results/results-utils.js';
 
-
-
 const test = QUnit.test;
-
-test('update trycount for specific user and difficulty in users array', (expect) => {
-    const user = [
-        {
-            name: 'b-rad',
-            levels:
-            {
-                easy: [],
-                medium: [],
-                hard: []
-            }
-        },
-        {
-            name: 'sally',
-            levels:
-            {
-                easy: [],
-                medium: [],
-                hard: []
-            }
-        }
-    ];
-
-    saveUsers(user);
-
-    const currentUser = {
-        name: 'b-rad',
-        game: 'easy'
-    };
-
-    const tryCount = 32;
-
-    const expected = [
-        {
-            name: 'b-rad',
-            levels:
-            {
-                easy: [32],
-                medium: [],
-                hard: []
-            }
-        },
-        {
-            name: 'sally',
-            levels:
-            {
-                easy: [],
-                medium: [],
-                hard: []
-            }
-        },
-    ];
-
-    //Act 
-    // Call the function you're testing and set the result to a const
-    const actual = setUserScore(tryCount, currentUser);
-
-    //Expect
-    // Make assertions about what is expected versus the actual result
-    expect.deepEqual(actual, expected);
-});
-
 
 // renderScoreLine test
 test('render table line based on user data in local storage; returns "-" for empty array, and returns lowest(best) score for multiple entries', (expect) => {
@@ -84,23 +18,6 @@ test('render table line based on user data in local storage; returns "-" for emp
 
     const actual = renderScoreLine(userData);
 
-
-    expect.equal(actual.outerHTML, expected);
-
-});
-
-// renderCard test
-test('should render card within a label', (expect) => {
-
-    const card = {
-        id: 8,
-        name: 'eight',
-        img: 'mock-up-eight.png',
-    };
-
-    const expected = `<div id="gameCard" class="game-card"><div class="card" id="card"><img src="../assets/cards/mock-up-eight.png" class="card-face card-front"><img src="../assets/cards/mock-up-back.png" class="card-face card-back"></div></div>`;
-
-    const actual = renderCard(card);
 
     expect.equal(actual.outerHTML, expected);
 
