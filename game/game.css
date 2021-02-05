@@ -19,28 +19,55 @@ section.main-section {
     margin: 0px;
 }
 
-#game-board {
-    width: 65%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
+#game-board.easy-gameboard {
+    display: grid;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
     margin: 30px;
 }
 
+#game-board.medium-gameboard {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin: 30px;
+}
+
+#game-board.easy-gameboard .game-card {
+}
+
+#game-board.easy-gameboard .card {
+}
+
+#game-board.hard-gameboard {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 30px;
+}
+
+#game-board.hard-gameboard .game-card {
+
+}
+
 img:hover {
-    box-shadow: -3px 3px rgb(185, 178, 185);
+    box-shadow: 3px 3px rgb(185, 178, 185);
     transition: .2s ease-in-out;
 }
 
 /* flip test */
 
 .game-card {
-    margin: 15px;
     height: 125px;
     width: 125px;
     perspective: 600px;
+    margin: 15px;
 }
 
 .card {

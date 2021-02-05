@@ -67,6 +67,7 @@ test('update trycount for specific user and difficulty in users array', (expect)
     expect.deepEqual(actual, expected);
 });
 
+
 // renderScoreLine test
 test('render table line based on user data in local storage; returns "-" for empty array, and returns lowest(best) score for multiple entries', (expect) => {
     const userData = {

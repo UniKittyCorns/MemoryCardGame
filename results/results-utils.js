@@ -18,11 +18,12 @@ export function renderScoreLine(userData) {
     return tr;
 }
 
+// Sorts saved scores to get lowest score, add dash if no score is saved
 export function renderScore(userDataLevels) {
     if (userDataLevels.length === 0) {
         return '-';
     }
-    const sorted = userDataLevels.sort(function (a, b) { return a - b; })
+    const sorted = userDataLevels.sort(function (a, b) { return a - b; }) // eslint-disable-line
         ;
     return sorted[0];
 }

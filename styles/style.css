@@ -33,13 +33,10 @@ header {
 
 }
 
-.scroll {
-    width: 100%;
-    margin-top: 25px;
-}
-
-.scroll img {
-    border-radius: 5px;
+.images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 h1 {
@@ -48,7 +45,6 @@ h1 {
     text-shadow: 2.3px 1px rgb(42, 90, 75);
 
 }
-
 
 a {
     color: rgb(170, 170, 172);
@@ -79,7 +75,7 @@ main {
 button {
     height: 30px;
     background: black;
-    color: white;
+    color: rgb(170, 170, 172);
     font-family: 'Prompt', sans-serif;
     font-weight: 400;
     border: rgb(97, 205, 171) 3px solid;
@@ -99,9 +95,4 @@ button:focus {
     color: black;
     border: black 3px solid;
     border-radius: 5px;
-}
-
-input {
-    background-color: rgb(37, 37, 37);
-    color: white;
 }

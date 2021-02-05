@@ -5,16 +5,7 @@ const giveUpButton = document.getElementById('give-up');
 const resetGameButton = document.getElementById('reset-game');
 const newGameButton = document.getElementById('new-game');
 const difficultyLevelDisplay = document.getElementById('difficulty-level');
-
-// animation flip test
-
-/*const card = document.getElementById('card');
-
-card.addEventListener('click', () => {
-    card.classList.toggle('is-flipped');
-});*/
-
-
+const gameBoard = document.querySelector('#game-board');
 
 // Audio Elements
 var pageAudio = document.getElementById('page-open-audio');
@@ -29,6 +20,15 @@ giveUpButton.addEventListener('click', () => {
     resetGameButton.style.display = 'block';
     newGameButton.style.display = 'block';
     giveUpButton.style.display = 'none';
+    gameBoard.classList.add('noClick');
+    const cards = gameBoard.querySelectorAll('.card');
+    setTimeout(() => {
+        gameBoard.classList.remove('noClick');
+        for (let card of cards) {
+            card.classList.add('is-flipped', 'noClick');
+        }
+    }, 2000);
+
 });
 
 resetGameButton.addEventListener('click', () => {
