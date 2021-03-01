@@ -11,6 +11,7 @@ form.addEventListener('submit', (e) => {
     const userInArray = findById(formData.get('name'), existingUsers);
 
 
+    // great job holding onto existing users here and checking to see if they have a session running!
     if (!existingUsers.length) {
         const user = {
             name: formData.get('name'),

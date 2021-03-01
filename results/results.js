@@ -15,11 +15,10 @@ for (let user of userData) {
 // On score board page, if no user info is saved in local storage, play again button will redirect home page
 playAgainButton.addEventListener('click', () => {
     const currentUser = getCurrentUser();
-    if (currentUser === null) {
-        window.location = '../index.html';
-    } else {
-        window.location = '../game/';
-    }
+
+    window.location = !currentUser 
+        ? '../index.html' 
+        : '../game/';
 });
 
 // brings user back to home page

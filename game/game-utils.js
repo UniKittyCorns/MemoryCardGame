@@ -49,6 +49,7 @@ function makeShuffledDeck() {
     copiedDeck.sort(function (a, b) { return 0.5 - Math.random(); });  // eslint-disable-line
     const halfDeck = copiedDeck.splice(0, cardPairs);
     const fullDeck = halfDeck.concat(halfDeck);
+    // great work figuring out the sorting method!
     const shuffledDeck = fullDeck.sort(function (a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
     return shuffledDeck;
 }
@@ -80,12 +81,12 @@ export function renderCard(card) {
 
 // On click, flips card over and checks for a match
 function flipCard() {
-    if (clicked[0] !== this) {
+    if (clicked[0] !== this) { // woah--does `this` refer to a clicked element or something? seems like it should refer to the function
         this.classList.toggle('is-flipped');
         const audio = document.querySelector('#flip-audio');
         audio.volume = 0.1;
         audio.play();
-        clicked.push(this);
+        clicked.push(this); // surprised to see `this`--again, seems like `this` refers to the function
         if (clicked.length === 2) {
             gameBoard.classList.add('noClick');
             tryCount++;
@@ -109,6 +110,7 @@ function flipCard() {
                 clicked = [];
             } else {
                 resetGameButton.classList.add('noClick');
+                // nice setTimeout!
                 setTimeout(() => {
                     clicked[0].classList.toggle('is-flipped');
                     clicked[1].classList.toggle('is-flipped');
@@ -126,6 +128,7 @@ function checkEndGame() {
     if (matched === cardPairs) {
         const winAudio = document.querySelector('#win-audio');
         winAudio.volume = 0.2;
+        // nice work getting the audio to play conditionally this!
         winAudio.play();
 
         const winMessage = document.createElement('p');
@@ -149,6 +152,7 @@ export function setUserScore() {
     const currentUsersArray = getUsers();
     for (let user of currentUsersArray) {
         if (user.name === currentUser.name) {
+            // very cool function! nice work using global state in an interesting way
             user.levels[currentUser.game].push(tryCount);
         }
     }
