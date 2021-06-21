@@ -1,6 +1,7 @@
+
 # Vampire Match
 <p align="center">
-  <img align="center" width="600" height="auto" src="https://user-images.githubusercontent.com/74790499/122813512-e3d90280-d287-11eb-8ce0-3b79292a3ced.gif" alt="gif of vampire match cards flipping over to reveal the whole deck's card front" />
+  <img align="center" width="600" height="auto" src="https://user-images.githubusercontent.com/74790499/122814798-8940a600-d289-11eb-99b1-5849ef04e46b.jpg" alt="vampire match cards flipped over to show off the whole deck's card designs" />
 </p>
 
 ## About
